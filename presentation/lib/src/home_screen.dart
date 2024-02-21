@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:presentation/src/my_home_screen.dart';
 
+import 'daangn_screen.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key, required this.title});
 
@@ -12,12 +14,9 @@ class HomeScreen extends StatefulWidget {
 
 class HomeScreenState extends State<HomeScreen> {
   final _counter = Counter();
-  static const initialPage = 1;
-  final controller = PageController(initialPage: initialPage);
+  final controller = PageController(initialPage: 0);
 
-  int get tabIndex => controller.hasClients
-      ? controller.page?.toInt() ?? initialPage
-      : initialPage;
+  int _tabIndex = 0;
 
   late var destinations = <List<dynamic>>[];
 
@@ -33,18 +32,6 @@ class HomeScreenState extends State<HomeScreen> {
       ['홈', Icon(Icons.home), Container(color: Colors.blue)],
       ['마이페이지', Icon(Icons.people), Container(color: Colors.green)]
     ];
-  }
-
-  void _incrementCounter() {
-    setState(() {
-      _counter.value += 1;
-    });
-  }
-
-  void _onItemTapped(int index) {
-    setState(() {
-      controller.jumpToPage(index);
-    });
   }
 
   @override
@@ -67,9 +54,11 @@ class HomeScreenState extends State<HomeScreen> {
   Widget _buildBody() {
     return PageView(
       controller: controller,
+      physics: NeverScrollableScrollPhysics(),
+      onPageChanged: _onPageChanged,
       children: [
         MyHomeScreen(counter: _counter, title: widget.title),
-        Container(color: Colors.blue),
+        DaangnScreen(),
         Container(color: Colors.green),
       ],
     );
@@ -80,7 +69,7 @@ class HomeScreenState extends State<HomeScreen> {
       items: destinations
           .map((it) => BottomNavigationBarItem(icon: it[1], label: it[0]))
           .toList(),
-      currentIndex: tabIndex,
+      currentIndex: _tabIndex,
       selectedItemColor: Colors.lightGreen,
       onTap: _onItemTapped,
     );
@@ -92,5 +81,25 @@ class HomeScreenState extends State<HomeScreen> {
       tooltip: 'Increment',
       child: const Icon(Icons.add),
     );
+  }
+
+  void _incrementCounter() {
+    setState(() {
+      _counter.value += 1;
+    });
+  }
+
+  void _onPageChanged(int index) {
+    setState(() {
+      _tabIndex = index;
+    });
+  }
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _onPageChanged(index);
+      controller.animateToPage(_tabIndex,
+          duration: const Duration(milliseconds: 300), curve: Curves.ease);
+    });
   }
 }
