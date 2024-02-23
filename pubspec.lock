@@ -149,7 +149,7 @@ packages:
   presentation:
     dependency: "direct main"
     description:
-      path: presentation
+      path: "presentations/presentation"
       relative: true
     source: path
     version: "1.0.0"

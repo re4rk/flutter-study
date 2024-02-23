@@ -29,7 +29,7 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   presentation:
-    path: ./presentation
+    path: ./presentations/presentation
   # domain
   domain:
     path: ./domain
