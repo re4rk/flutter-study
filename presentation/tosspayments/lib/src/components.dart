@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-ElevatedButton BlueButton({
+ElevatedButton blueButton({
   required void Function() onPressed,
   required String text,
 }) {

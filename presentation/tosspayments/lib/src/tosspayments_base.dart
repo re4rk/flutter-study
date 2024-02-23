@@ -13,7 +13,7 @@ import './screens/tosspayments_widget/widget_home.dart';
 /// page which is 'TosspaymentsSampleHome'.
 class TosspaymentsSampleApp extends StatelessWidget {
   /// Creates a TosspaymentsSampleApp.
-  const TosspaymentsSampleApp({Key? key}) : super(key: key);
+  const TosspaymentsSampleApp({super.key});
 
   /// Describes the part of the user interface represented by this widget.
   @override
@@ -34,7 +34,7 @@ class TosspaymentsSampleApp extends StatelessWidget {
 /// This is a [StatefulWidget] which maintains the state of the home screen.
 class TosspaymentsSampleHome extends StatefulWidget {
   /// Creates a TosspaymentsSampleHome with a given title.
-  const TosspaymentsSampleHome({Key? key, required this.title}) : super(key: key);
+  const TosspaymentsSampleHome({super.key, required this.title});
 
   /// The title displayed on the home screen.
   final String title;

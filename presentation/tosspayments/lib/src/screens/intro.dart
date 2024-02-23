@@ -20,7 +20,7 @@ class Intro extends StatelessWidget {
                     Row(
                       children: [
                         Expanded(
-                            child: BlueButton(
+                            child: blueButton(
                                 onPressed: () {
                                   Get.to(() => const Home());
                                 },
@@ -30,7 +30,7 @@ class Intro extends StatelessWidget {
                     const SizedBox(height: 20),
                     Row(children: [
                       Expanded(
-                          child: BlueButton(
+                          child: blueButton(
                               onPressed: () {
                                 Get.to(() => const WidgetHome());
                               },

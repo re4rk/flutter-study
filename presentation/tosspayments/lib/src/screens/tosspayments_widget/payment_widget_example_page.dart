@@ -100,7 +100,7 @@ class _PaymentWidgetExamplePageState extends State<PaymentWidgetExamplePage> {
                       padding: const EdgeInsets.all(24),
                       child: Column(
                         children: [
-                          BlueButton(
+                          blueButton(
                             onPressed: () async {
                               /// [PaymentMethodWidgetControl] 이용해 현재 고객이 선택한 결제수단을 구합니다.
                               final selected = await _paymentMethodWidgetControl?.getSelectedPaymentMethod();
@@ -112,7 +112,7 @@ class _PaymentWidgetExamplePageState extends State<PaymentWidgetExamplePage> {
                                 '(클릭시 갱신) 선택한 결제수단 : ${selectedPaymentMethod?.method} ${selectedPaymentMethod?.easyPay?.provider ?? ''}',
                           ),
                           const SizedBox(height: 20),
-                          BlueButton(
+                          blueButton(
                             onPressed: () async {
                               /// [AgreementWidgetControl]을 이용해 고객의 필수 약관 동의 상태를 구합니다.
                               var status = await _agreementWidgetControl?.getAgreementStatus();
@@ -141,7 +141,7 @@ class _PaymentWidgetExamplePageState extends State<PaymentWidgetExamplePage> {
                 child: Row(
                   children: [
                     Expanded(
-                        child: BlueButton(
+                        child: blueButton(
                             onPressed: () {
                               _showNumberInputDialog(context, (int newAmount) {
                                 /// [PaymentMethodWidgetControl]을 이용해 결제 금액을 업데이트합니다.
@@ -153,7 +153,7 @@ class _PaymentWidgetExamplePageState extends State<PaymentWidgetExamplePage> {
                             text: '금액변경')),
                     const SizedBox(width: 20),
                     Expanded(
-                        child: BlueButton(
+                        child: blueButton(
                             onPressed: () async {
                               if (_agreementWidgetControl == null || _paymentMethodWidgetControl == null) {
                                 toast(context, 'requestPayment', '결제위젯이 렌더링되지 않았습니다.');
