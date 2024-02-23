@@ -2,15 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
-import 'screens/intro.dart';
-import 'screens/result.dart';
-import 'screens/tosspayments/home.dart';
-import 'screens/tosspayments_widget/widget_home.dart';
-
-/// The main entry point for the application.
-void main() {
-  runApp(const TosspaymentsSampleApp());
-}
+import './screens/intro.dart';
+import './screens/result.dart';
+import './screens/tosspayments/home.dart';
+import './screens/tosspayments_widget/widget_home.dart';
 
 /// TosspaymentsSampleApp represents the root widget of the application.
 ///
