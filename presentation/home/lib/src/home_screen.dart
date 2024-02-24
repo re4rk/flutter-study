@@ -1,7 +1,11 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:tosspayments/tosspayments.dart';
 
 import 'daangn_screen.dart';
 import 'my_home_screen.dart';
+import 'platform_util.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key, required this.title});
@@ -59,7 +63,7 @@ class HomeScreenState extends State<HomeScreen> {
       children: [
         MyHomeScreen(counter: _counter, title: widget.title),
         DaangnScreen(),
-        Container(color: Colors.green),
+        isMobile ? TosspaymentsSampleHome(title: "Hello") : Center(child: Text('해당 플랫폼에서는 지원하지 않는 기능입니다.')),
       ],
     );
   }

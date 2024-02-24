@@ -28,7 +28,6 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
-  tosspayments_widget_sdk_flutter: ^1.0.1
   home:
     path: ./presentation/home
   # domain

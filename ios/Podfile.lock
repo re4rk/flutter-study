@@ -9,7 +9,11 @@ PODS:
   - flutter_inappwebview/Core (0.0.1):
     - Flutter
     - OrderedSet (~> 5.0)
+  - fluttertoast (0.0.2):
+    - Flutter
+    - Toast
   - OrderedSet (5.0.0)
+  - Toast (4.1.0)
   - tosspayments_webview_flutter (0.0.1):
     - Flutter
   - url_launcher_ios (0.0.1):
@@ -19,12 +23,14 @@ DEPENDENCIES:
   - device_info (from `.symlinks/plugins/device_info/ios`)
   - Flutter (from `Flutter`)
   - flutter_inappwebview (from `.symlinks/plugins/flutter_inappwebview/ios`)
+  - fluttertoast (from `.symlinks/plugins/fluttertoast/ios`)
   - tosspayments_webview_flutter (from `.symlinks/plugins/tosspayments_webview_flutter/ios`)
   - url_launcher_ios (from `.symlinks/plugins/url_launcher_ios/ios`)
 
 SPEC REPOS:
   trunk:
     - OrderedSet
+    - Toast
 
 EXTERNAL SOURCES:
   device_info:
@@ -33,6 +39,8 @@ EXTERNAL SOURCES:
     :path: Flutter
   flutter_inappwebview:
     :path: ".symlinks/plugins/flutter_inappwebview/ios"
+  fluttertoast:
+    :path: ".symlinks/plugins/fluttertoast/ios"
   tosspayments_webview_flutter:
     :path: ".symlinks/plugins/tosspayments_webview_flutter/ios"
   url_launcher_ios:
@@ -42,7 +50,9 @@ SPEC CHECKSUMS:
   device_info: d7d233b645a32c40dfdc212de5cf646ca482f175
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
   flutter_inappwebview: 3d32228f1304635e7c028b0d4252937730bbc6cf
+  fluttertoast: 31b00dabfa7fb7bacd9e7dbee580d7a2ff4bf265
   OrderedSet: aaeb196f7fef5a9edf55d89760da9176ad40b93c
+  Toast: ec33c32b8688982cecc6348adeae667c1b9938da
   tosspayments_webview_flutter: ceae304825a077de594d01ee39dd0ce2307adb4e
   url_launcher_ios: bbd758c6e7f9fd7b5b1d4cde34d2b95fcce5e812
 

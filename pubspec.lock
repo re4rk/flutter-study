@@ -111,6 +111,22 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  fluttertoast:
+    dependency: transitive
+    description:
+      name: fluttertoast
+      sha256: dfdde255317af381bfc1c486ed968d5a43a2ded9c931e87cbecd88767d6a71c1
+      url: "https://pub.dev"
+    source: hosted
+    version: "8.2.4"
+  get:
+    dependency: transitive
+    description:
+      name: get
+      sha256: e4e7335ede17452b391ed3b2ede016545706c01a02292a6c97619705e7d2a85e
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.6.6"
   home:
     dependency: "direct main"
     description:
@@ -251,6 +267,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.6.1"
+  tosspayments:
+    dependency: transitive
+    description:
+      path: "presentation/tosspayments"
+      relative: true
+    source: path
+    version: "1.0.0"
   tosspayments_webview_flutter:
     dependency: transitive
     description:
@@ -260,7 +283,7 @@ packages:
     source: hosted
     version: "1.0.2"
   tosspayments_widget_sdk_flutter:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: tosspayments_widget_sdk_flutter
       sha256: "86d32ad88a22d01c141728ae8a69c2a54b6fc53157c440b175d64c8cde8b0bd1"
