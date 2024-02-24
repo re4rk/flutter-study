@@ -10,6 +10,8 @@ environment:
 dependencies:
   tosspayments:
     path: ../tosspayments
+  coinone_model:
+    path: ../../core/coinone_model
   common:
     path: ../../core/common
   # path: ^1.8.0

@@ -31,8 +31,10 @@ dependencies:
   home:
     path: ./presentation/home
   # domain
-  domain:
-    path: ./domain
+  coinone_model:
+    path: ./core/coinone_model
+  coinone_data:
+    path: ./data/coinone_data
   flutter:
     sdk: flutter
 
