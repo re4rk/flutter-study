@@ -27,7 +27,7 @@ class HomeScreenState extends State<HomeScreen> {
     destinations = [
       {"label": '나의 판매글', "icon": Icon(Icons.text_snippet)},
       {"label": '홈', "icon": Icon(Icons.home)},
-      {"label": '마이페이지', "icon": Icon(Icons.people)}
+      {"label": '토스 결제', "icon": Icon(Icons.account_balance_outlined)}
     ];
   }
 

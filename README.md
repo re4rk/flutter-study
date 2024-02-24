@@ -1,6 +1,12 @@
-# first
+# flutter study app
 
 A new Flutter project.
+
+# Skills
+- Flutter
+- Dart
+- [go_router](https://pub.dev/packages/go_router)
+- [riverpod](https://pub.dev/packages/riverpod)
 
 ## Getting Started
 
