@@ -19,18 +19,15 @@ class HomeScreenState extends State<HomeScreen> {
 
   int _tabIndex = 0;
 
-  late var destinations = <List<dynamic>>[];
+  late var destinations = <Map<String, dynamic>>[];
 
   @override
   void initState() {
     super.initState();
     destinations = [
-      [
-        '나의 판매글',
-        Icon(Icons.text_snippet),
-      ],
-      ['홈', Icon(Icons.home), Container(color: Colors.blue)],
-      ['마이페이지', Icon(Icons.people), Container(color: Colors.green)]
+      {"label": '나의 판매글', "icon": Icon(Icons.text_snippet)},
+      {"label": '홈', "icon": Icon(Icons.home)},
+      {"label": '마이페이지', "icon": Icon(Icons.people)}
     ];
   }
 
@@ -62,7 +59,7 @@ class HomeScreenState extends State<HomeScreen> {
   Widget _buildBottomNavigationBar() {
     return BottomNavigationBar(
       items: destinations
-          .map((it) => BottomNavigationBarItem(icon: it[1], label: it[0]))
+          .map((it) => BottomNavigationBarItem(icon: it["icon"], label: it["label"]))
           .toList(),
       currentIndex: _tabIndex,
       selectedItemColor: Colors.lightGreen,
@@ -91,8 +88,8 @@ class HomeScreenState extends State<HomeScreen> {
   }
 
   void _onItemTapped(int index) {
-    if(index == 2) {
-      if(isMobile) {
+    if (index == 2) {
+      if (isMobile) {
         context.goTossPayments();
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
