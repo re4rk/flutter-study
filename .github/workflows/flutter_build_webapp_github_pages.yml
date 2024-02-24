@@ -25,14 +25,10 @@ jobs:
       - name: Build web
         run: flutter build web --base-href "/${{ github.event.repository.name }}/"
 
-      - run: git config user.name github-actions
-      - run: git config user.email github-actions@github.com
-      - run: git --work-tree build/web add --all
-      - run: git commit -m "Automatic deployment by github-actions"
-      - run: git push origin HEAD:gh_pages --force
-
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build/web
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git --work-tree build/web add --all
+          git commit -m "Automatic deployment by github-actions"
+          git push origin HEAD:gh_pages --force
