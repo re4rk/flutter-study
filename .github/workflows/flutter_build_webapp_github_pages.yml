@@ -9,19 +9,28 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
-      - uses: subosito/flutter-action@v2
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
         with:
+          flutter-version: '3.19'
           channel: 'master'
-      - run: flutter pub get
+
+      - name: Install dependencies
+        run: flutter pub get
+
       - run: flutter config --enable-web
-      - run: flutter build web --base-href "/${{ github.event.repository.name }}/"
+
+      - name: Build web
+        run: flutter build web --base-href "/${{ github.event.repository.name }}/"
 
       - run: git config user.name github-actions
       - run: git config user.email github-actions@github.com
       - run: git --work-tree build/web add --all
       - run: git commit -m "Automatic deployment by github-actions"
       - run: git push origin HEAD:gh_pages --force
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
