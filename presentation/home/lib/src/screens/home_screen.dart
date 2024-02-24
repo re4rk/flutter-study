@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:tosspayments/tosspayments.dart';
 
 import 'daangn_screen.dart';
@@ -18,7 +19,6 @@ class HomeScreen extends StatefulWidget {
 
 class HomeScreenState extends State<HomeScreen> {
   final _counter = Counter();
-  final controller = PageController(initialPage: 0);
 
   int _tabIndex = 0;
 
@@ -31,7 +31,6 @@ class HomeScreenState extends State<HomeScreen> {
       [
         '나의 판매글',
         Icon(Icons.text_snippet),
-        MyHomeScreen(counter: _counter, title: widget.title)
       ],
       ['홈', Icon(Icons.home), Container(color: Colors.blue)],
       ['마이페이지', Icon(Icons.people), Container(color: Colors.green)]
@@ -55,17 +54,12 @@ class HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget _buildBody() {
-    return PageView(
-      controller: controller,
-      physics: NeverScrollableScrollPhysics(),
-      onPageChanged: _onPageChanged,
-      children: [
-        MyHomeScreen(counter: _counter, title: widget.title),
-        DaangnScreen(),
-        isMobile ? TosspaymentsSampleHome(title: "Hello") : Center(child: Text('해당 플랫폼에서는 지원하지 않는 기능입니다.')),
-      ],
-    );
+  dynamic _buildBody() {
+    return switch (_tabIndex) {
+      0 => MyHomeScreen(title: 'My Home', counter: _counter),
+      1 => DaangnScreen(),
+      int() => Container(color: Colors.green),
+    };
   }
 
   Widget _buildBottomNavigationBar() {
@@ -100,10 +94,20 @@ class HomeScreenState extends State<HomeScreen> {
   }
 
   void _onItemTapped(int index) {
-    setState(() {
-      _onPageChanged(index);
-      controller.animateToPage(_tabIndex,
-          duration: const Duration(milliseconds: 300), curve: Curves.ease);
-    });
+    if(index == 2) {
+      if(isMobile) {
+        context.go('/toss_payments');
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('해당 플랫폼에서는 지원하지 않는 기능입니다.'),
+          ),
+        );
+      }
+    } else {
+      setState(() {
+        _onPageChanged(index);
+      });
+    }
   }
 }
