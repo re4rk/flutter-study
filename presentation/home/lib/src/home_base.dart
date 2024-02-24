@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:home/src/screens/my_home_screen.dart';
 import 'package:tosspayments/tosspayments.dart';
 
-import 'screens/daangn_screen.dart';
 import 'screens/home_screen.dart';
 
 class MyApp extends StatelessWidget {

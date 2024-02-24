@@ -1,9 +1,5 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:home/home.dart';
-import 'package:tosspayments/tosspayments.dart';
 
 import 'daangn_screen.dart';
 import '../util/platform_util.dart';
