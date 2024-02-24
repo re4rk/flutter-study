@@ -75,6 +75,18 @@ class HomeScreenState extends State<HomeScreen> {
     );
   }
 
+  void _onItemTapped(int index) {
+    if (index == 2) {
+      if (isMobile) {
+        context.goTossPayments();
+      } else {
+        _showSnackBar('해당 플랫폼에서는 지원하지 않는 기능입니다.');
+      }
+    } else {
+      _onPageChanged(index);
+    }
+  }
+
   void _incrementCounter() {
     setState(() {
       _counter.value += 1;
@@ -87,21 +99,10 @@ class HomeScreenState extends State<HomeScreen> {
     });
   }
 
-  void _onItemTapped(int index) {
-    if (index == 2) {
-      if (isMobile) {
-        context.goTossPayments();
-      } else {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('해당 플랫폼에서는 지원하지 않는 기능입니다.'),
-          ),
-        );
-      }
-    } else {
-      setState(() {
-        _onPageChanged(index);
-      });
-    }
+  void _showSnackBar(String text) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(text)),
+    );
   }
+
 }
