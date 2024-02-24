@@ -22,3 +22,8 @@ jobs:
       - run: git --work-tree build/web add --all
       - run: git commit -m "Automatic deployment by github-actions"
       - run: git push origin HEAD:gh_pages --force
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build/web
