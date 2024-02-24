@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'fake_datas.dart';
+import '../models/fake_datas.dart';
 
 class DaangnScreen extends StatefulWidget {
   @override
