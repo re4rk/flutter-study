@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:home/home.dart';
 import 'package:tosspayments/tosspayments.dart';
 
 import 'daangn_screen.dart';
@@ -96,7 +97,7 @@ class HomeScreenState extends State<HomeScreen> {
   void _onItemTapped(int index) {
     if(index == 2) {
       if(isMobile) {
-        context.go('/toss_payments');
+        context.goTossPayments();
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(

@@ -6,45 +6,37 @@ import 'package:tosspayments/tosspayments.dart';
 import 'screens/daangn_screen.dart';
 import 'screens/home_screen.dart';
 
-
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-        routerConfig: _router,
+      routerConfig: _router,
     );
   }
+}
+
+const String _ROOT = '/';
+const String _TOSS_PAYMENTS = 'toss_payments';
+
+extension HomeRoutes on BuildContext {
+  void goTossPayments() => go(_ROOT + _TOSS_PAYMENTS);
 }
 
 final GoRouter _router = GoRouter(
   routes: [
     GoRoute(
-      path: '/',
-      builder: (context, state) {
-        return const HomeScreen(
-          title: '',
-        );
-      },
+      path: _ROOT,
+      builder: (context, state) => const HomeScreen(title: 'My Home'),
       routes: [
         GoRoute(
-          path: 'daangn',
-          builder: (context, state) {
-            return DaangnScreen();
-          },
-        ),
-        GoRoute(
-          path: 'toss_payments',
-          builder: (context, state) {
-            return  TosspaymentsSampleHome(title: "Hello");
-          },
+          path: _TOSS_PAYMENTS,
+          builder: (context, state) => TosspaymentsSampleHome(title: "Hello"),
         ),
       ],
     ),
