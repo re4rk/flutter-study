@@ -5,7 +5,7 @@ import 'package:tosspayments/tosspayments.dart';
 
 import 'daangn_screen.dart';
 import 'my_home_screen.dart';
-import 'platform_util.dart';
+import 'util/platform_util.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key, required this.title});

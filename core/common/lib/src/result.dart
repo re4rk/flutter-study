@@ -1,17 +1,3 @@
-import 'dart:io';
-
-Result<T> runCatching<T>(T Function() fn) {
-  try {
-    return Result(fn(), null);
-  } catch (e) {
-    return Result(null, e.toString());
-  }
-}
-
-bool get isMobile =>
-    runCatching<bool>(() => Platform.isAndroid || Platform.isIOS)
-        .getOrElse(false);
-
 class Result<T> {
   final T? value;
   final String? error;
